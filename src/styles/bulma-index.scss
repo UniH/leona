@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+$pink: #fa7c91;
+$dark-sky-blue: #3babe1;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $dark-sky-blue;
+$link: $dark-sky-blue;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+$size-1: 4rem;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+@import "~bulma/sass/utilities/initial-variables";
+
+/*! bulma.io v0.7.4 | MIT License | github.com/jgthms/bulma */
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/elements/_all";
+@import "~bulma/sass/components/_all";
+@import "~bulma/sass/grid/_all";
+@import "~bulma/sass/layout/_all";
