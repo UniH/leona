@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-async function handler() {
+export async function handler() {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
