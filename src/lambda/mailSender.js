@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-async function sendMail() {
+async function handler() {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -22,4 +22,4 @@ async function sendMail() {
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 
-export default sendMail;
+export default handler;
