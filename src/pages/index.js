@@ -8,8 +8,8 @@ import SEO from "../components/seo";
 const IndexPage = () => {
   const handleMailSend = () => {
     fetch("/.netlify/functions/mailSender")
-      .then(response => response.json())
-      .then(console.log);
+      // .then(response => response.json())
+      .then(response => console.log(response));
   };
   return (
     <Layout>
@@ -17,7 +17,7 @@ const IndexPage = () => {
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
-      <button className="button is-primary" onclick={handleMailSend}>
+      <button className="button is-primary" onClick={handleMailSend}>
         hihi
       </button>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
