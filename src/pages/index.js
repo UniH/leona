@@ -90,9 +90,9 @@ const IndexPage = () => {
       <div className="section-contact">
         <div className="title">立刻聯絡</div>
         <div className="content">
-          <a href="tele:+886939-117-358">0939-117-358</a>
+          <a href="tel:+886939-117-358">0939-117-358</a>
           <br />
-          <a href="tele:+8863-3161512">03-3161512</a>
+          <a href="tel:+8863-3161512">03-3161512</a>
         </div>
       </div>
       <iframe
