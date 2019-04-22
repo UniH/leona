@@ -5,12 +5,13 @@ $dark-sky-blue: #3babe1;
 $brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
+$transparent: rgba(255, 255, 255, 0);
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $dark-sky-blue;
+$primary: $transparent;
 $link: $dark-sky-blue;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
