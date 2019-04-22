@@ -96,10 +96,10 @@ const IndexPage = () => {
         </div>
       </div>
       <iframe
-        width="600"
+        width="100%"
         height="450"
         frameborder="0"
-        style="border:0"
+        style={{ border: 0 }}
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
       />
 
