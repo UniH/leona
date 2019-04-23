@@ -13,16 +13,24 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <img src="/img1.png" />
+      <img src="/img1.jpg" />
       <div className="section2">
-        <div className="content">
-          <div>店墅合一</div>
-          <div>電梯三代豪居</div>
-          <div>整層雙主臥</div>
-          <div>總裁店面</div>
-          <div>傳世城堡</div>
+        <div className="columns">
+          <div className="column is-8">
+            <div className="background2-1">
+              <div className="content">
+                <div>店墅合一</div>
+                <div>電梯三代豪居</div>
+                <div>整層雙主臥</div>
+                <div>總裁店面</div>
+                <div>傳世城堡</div>
+              </div>
+            </div>
+          </div>
+          <div className="column is-4">
+            <div className="background2-2" />
+          </div>
         </div>
-        <img src="/img2.png" />
       </div>
       <div className="section-text">
         <div className="title">中路特區，豪氣伸展您的富貴疆域</div>
@@ -30,7 +38,19 @@ const IndexPage = () => {
           大桃園精華地段。10分鐘近取桃園火車站、國道二號、桃園交流道，機場、中山高、北二高便捷快速，一小時內的快速台北生活圈。
         </div>
       </div>
-      <img src="/img3.png" />
+      <div className="section3">
+        <div className="columns">
+          <div className="column is-4">
+            <div className="background3-1" />
+          </div>
+          <div className="column is-4">
+            <div className="background3-2" />
+          </div>
+          <div className="column is-4">
+            <div className="background3-3" />
+          </div>
+        </div>
+      </div>
       <div className="section4">
         <div className="columns">
           <div className="column is-7">
@@ -52,11 +72,23 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="column is-5">
-            <img src="/img4.png" />
+            <div className="background4" />
           </div>
         </div>
       </div>
-      <img src="/img5.png" />
+      <div className="section5">
+        <div className="columns">
+          <div className="column is-one-fifths">
+            <div className="img5-1" />
+          </div>
+          <div className="column ">
+            <div className="img5-2" />
+          </div>
+          <div className="column is-one-quarter">
+            <div className="img5-3" />
+          </div>
+        </div>
+      </div>
       <div className="section-text">
         <div className="title">左擁學區 右抱綠地</div>
         <div className="content">
@@ -64,29 +96,67 @@ const IndexPage = () => {
           1座中央公園、2座鄰里公園、6座兒童遊樂場。超過8公頃以上的公園綠地。鬧中取靜的城市呼吸。
         </div>
       </div>
-      <img src="/img6.png" />
-      <div className="columns">
-        <div className="column is-6">
-          <img src="/img7.png" />
+      <div className="section6">
+        <div className="columns">
+          <div className="column is-4">
+            <div className="img6-1" />
+          </div>
+          <div className="column is-4">
+            <div className="img6-2" />
+          </div>
+          <div className="column is-4">
+            <div className="img6-3" />
+          </div>
         </div>
-        <div className="column is-6">
-          <div className="grid">
-            <div className="title">精裝一品大宅</div>
-            <div className="content">
-              蒙地卡羅花崗石弘暉大器
-              <br />
-              全棟TOTO衛浴設備雙主臥
-              <br />
-              免治馬桶及三合一暖風機
-              <br />
-              杜邦米蘭石檯面、玻璃晶面板
-              <br />
-              全棟精品設備
+      </div>
+      <div className="section7">
+        <div className="columns">
+          <div className="column is-6">
+            <div className="tile is-ancestor">
+              <div className="tile is-parent">
+                <div className="tile is-child">
+                  <div className="img7-1" />
+                </div>
+              </div>
+              <div className="tile is-parent is-vertical">
+                <div className="tile is-child">
+                  <div className="img7-2" />
+                </div>
+                <div className="tile is-child">
+                  <div className="img7-3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <img src="/img7.png" /> */}
+          <div className="column is-6">
+            <div className="grid">
+              <div className="title">精裝一品大宅</div>
+              <div className="content">
+                蒙地卡羅花崗石弘暉大器
+                <br />
+                全棟TOTO衛浴設備雙主臥
+                <br />
+                免治馬桶及三合一暖風機
+                <br />
+                杜邦米蘭石檯面、玻璃晶面板
+                <br />
+                全棟精品設備
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <img src="/img8.png" />
+      <div className="section8">
+        <div className="columns">
+          <div className="column is-9">
+            <div className="img8-1" />
+          </div>
+          <div className="column is-3">
+            <div className="img8-2" />
+          </div>
+        </div>
+      </div>
       <div className="section-contact">
         <div className="title">立刻聯絡</div>
         <div className="content">
