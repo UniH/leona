@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const IndexPage = () => {
+  const [isLoading, changeIsLoading] = useState(false);
   const [name, changeName] = useState('');
   const [phone, changePhone] = useState('');
   const [mail, changeMail] = useState('');
@@ -27,28 +28,28 @@ const IndexPage = () => {
 
   const isFormValid = name.length > 0 && (phone.length > 0 || mail.length > 0);
 
-  const handleMailSend = async () => {
+  const handleMailSend = () => {
     if (isFormValid) {
-      const response = await fetch('/.netlify/functions/mailSender', {
+      changeIsLoading(true);
+      fetch('/.netlify/functions/mailSender', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, phone, mail, remarks }),
+      }).then(res => {
+        if (res && res.status) {
+          alert('感謝您，我們會儘快與您聯繫');
+        }
+        changeIsLoading(false);
       });
-      const content = await response.json();
-
-      console.log(content);
-      // fetch('/.netlify/functions/mailSender')
-      //   // .then(response => response.json())
-      //   .then(response => console.log(response));
     }
   };
 
   return (
     <Layout>
-      {/* <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <img src="/img1.jpg" />
       <div className="section2">
         <div className="columns">
@@ -204,9 +205,9 @@ const IndexPage = () => {
         width="100%"
         height="500"
         frameborder="0"
-        style={{ border: 0, height: "500px" }}
+        style={{ border: 0, height: '500px' }}
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
-      /> */}
+      />
 
       <div className="field">
         <label className="label">姓名</label>
@@ -261,9 +262,11 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div class="control">
+      <div className="control">
         <button
-          className={`button is-primary ${isFormValid ? '' : 'is-disabled'}`}
+          className={`button  ${isFormValid ? '' : 'is-disabled'} ${
+            isLoading ? 'is-loading' : ''
+          }`}
           onClick={handleMailSend}
           disabled={!isFormValid}
         >

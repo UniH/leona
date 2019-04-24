@@ -1,15 +1,15 @@
-var proxy = require("http-proxy-middleware");
+var proxy = require('http-proxy-middleware');
 
 module.exports = {
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
-      "/.netlify/functions/",
+      '/.netlify/functions/',
       proxy({
-        target: "http://localhost:9000",
+        target: 'http://localhost:9000',
         pathRewrite: {
-          "/.netlify/functions/": "",
+          '/.netlify/functions/': '',
         },
       })
     );
@@ -48,10 +48,10 @@ module.exports = {
       options: { prefixes: [`/app/*`] },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ["Noto Sans TC", "sans-serif"],
+          families: ['Noto Sans TC', 'sans-serif'],
         },
       },
     },
