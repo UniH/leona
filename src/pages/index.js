@@ -1,18 +1,54 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const IndexPage = () => {
-  const handleMailSend = () => {
-    fetch("/.netlify/functions/mailSender")
-      // .then(response => response.json())
-      .then(response => console.log(response));
+  const [name, changeName] = useState('');
+  const [phone, changePhone] = useState('');
+  const [mail, changeMail] = useState('');
+  const [remarks, changeRemarks] = useState('');
+
+  const handleNameChange = e => {
+    changeName(e.target.value);
   };
+
+  const handlePhoneChange = e => {
+    changePhone(e.target.value);
+  };
+
+  const handleMailChange = e => {
+    changeMail(e.target.value);
+  };
+  const handleRemarksChange = e => {
+    changeRemarks(e.target.value);
+  };
+
+  const isFormValid = name.length > 0 && (phone.length > 0 || mail.length > 0);
+
+  const handleMailSend = async () => {
+    if (isFormValid) {
+      const response = await fetch('/.netlify/functions/mailSender', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, phone, mail, remarks }),
+      });
+      const content = await response.json();
+
+      console.log(content);
+      // fetch('/.netlify/functions/mailSender')
+      //   // .then(response => response.json())
+      //   .then(response => console.log(response));
+    }
+  };
+
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      {/* <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <img src="/img1.jpg" />
       <div className="section2">
         <div className="columns">
@@ -128,7 +164,6 @@ const IndexPage = () => {
               </div>
             </div>
           </div>
-          {/* <img src="/img7.png" /> */}
           <div className="column is-6">
             <div className="grid">
               <div className="title">精裝一品大宅</div>
@@ -171,11 +206,70 @@ const IndexPage = () => {
         frameborder="0"
         style={{ border: 0, height: "500px" }}
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
-      />
+      /> */}
 
-      {/* <button className="button is-primary" onClick={handleMailSend}>
-        hihi
-      </button> */}
+      <div className="field">
+        <label className="label">姓名</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="您的姓名"
+            value={name}
+            onChange={handleNameChange}
+          />
+        </div>
+      </div>
+
+      <div className="field">
+        <label className="label">電話</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="Text input"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+        </div>
+        {/* <p className="help is-success">This username is available</p> */}
+      </div>
+
+      <div className="field">
+        <label className="label">Email</label>
+        <div className="control">
+          <input
+            className="input"
+            type="email"
+            placeholder="Email input"
+            value={mail}
+            onChange={handleMailChange}
+          />
+        </div>
+        {/* <p className="help is-danger">This email is invalid</p> */}
+      </div>
+
+      <div className="field">
+        <label className="label">備註</label>
+        <div className="control">
+          <textarea
+            className="textarea"
+            placeholder="Textarea"
+            value={remarks}
+            onChange={handleRemarksChange}
+          />
+        </div>
+      </div>
+
+      <div class="control">
+        <button
+          className={`button is-primary ${isFormValid ? '' : 'is-disabled'}`}
+          onClick={handleMailSend}
+          disabled={!isFormValid}
+        >
+          hihi
+        </button>
+      </div>
     </Layout>
   );
 };

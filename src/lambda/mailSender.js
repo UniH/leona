@@ -1,8 +1,9 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
-export async function handler() {
+export async function handler(data) {
+  console.log('handler', data);
   let transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: 'gmail',
     auth: {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_PASS,
@@ -12,14 +13,14 @@ export async function handler() {
   let info = await transporter.sendMail({
     from: '"Fred Foo", <foo@example.com>',
     to: process.env.MAIL_RECIVER,
-    subject: "hello",
-    text: "hello world",
-    html: "<b>Hello world</b>",
+    subject: 'hello',
+    text: 'hello world',
+    html: '<b>Hello world</b>',
   });
 
-  console.log("message sent: %s", info.messageId);
+  console.log('message sent: %s', info.messageId);
 
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 }
 
 export default handler;
