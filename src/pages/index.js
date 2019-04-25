@@ -221,7 +221,7 @@ const IndexPage = () => {
             <input
               className="input"
               type="text"
-              placeholder="Text input"
+              placeholder="09xx-xxx-xxx"
               value={phone}
               onChange={handlePhoneChange}
             />
@@ -235,7 +235,7 @@ const IndexPage = () => {
             <input
               className="input"
               type="email"
-              placeholder="Email input"
+              placeholder="xxx@mail.com"
               value={mail}
               onChange={handleMailChange}
             />
@@ -248,7 +248,7 @@ const IndexPage = () => {
           <div className="control">
             <textarea
               className="textarea"
-              placeholder="Textarea"
+              placeholder="想了解..."
               value={remarks}
               onChange={handleRemarksChange}
             />
