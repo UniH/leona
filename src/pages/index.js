@@ -201,70 +201,72 @@ const IndexPage = () => {
           <a href="tel:+8863-3161512">03-3161512</a>
         </div>
       </div>
-      <div className="field">
-        <label className="label has-text-white">姓名</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            placeholder="您的姓名"
-            value={name}
-            onChange={handleNameChange}
-          />
+      <section className="seciton-form">
+        <div className="field">
+          <label className="label has-text-white">姓名</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              placeholder="您的姓名"
+              value={name}
+              onChange={handleNameChange}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="field">
-        <label className="label has-text-white">電話</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            placeholder="Text input"
-            value={phone}
-            onChange={handlePhoneChange}
-          />
+        <div className="field">
+          <label className="label has-text-white">電話</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              placeholder="Text input"
+              value={phone}
+              onChange={handlePhoneChange}
+            />
+          </div>
+          {/* <p className="help is-success">This username is available</p> */}
         </div>
-        {/* <p className="help is-success">This username is available</p> */}
-      </div>
 
-      <div className="field">
-        <label className="label has-text-white">Email</label>
-        <div className="control">
-          <input
-            className="input"
-            type="email"
-            placeholder="Email input"
-            value={mail}
-            onChange={handleMailChange}
-          />
+        <div className="field">
+          <label className="label has-text-white">Email</label>
+          <div className="control">
+            <input
+              className="input"
+              type="email"
+              placeholder="Email input"
+              value={mail}
+              onChange={handleMailChange}
+            />
+          </div>
+          {/* <p className="help is-danger">This email is invalid</p> */}
         </div>
-        {/* <p className="help is-danger">This email is invalid</p> */}
-      </div>
 
-      <div className="field">
-        <label className="label has-text-white">備註</label>
-        <div className="control">
-          <textarea
-            className="textarea"
-            placeholder="Textarea"
-            value={remarks}
-            onChange={handleRemarksChange}
-          />
+        <div className="field">
+          <label className="label has-text-white">備註</label>
+          <div className="control">
+            <textarea
+              className="textarea"
+              placeholder="Textarea"
+              value={remarks}
+              onChange={handleRemarksChange}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="control has-text-centered">
-        <button
-          className={`button is-medium is-primary ${
-            isFormValid ? '' : 'is-disabled'
-          } ${isLoading ? 'is-loading' : ''}`}
-          onClick={handleMailSend}
-          disabled={!isFormValid}
-        >
-          送出
-        </button>
-      </div>
+        <div className="control has-text-centered">
+          <button
+            className={`button is-medium is-primary ${
+              isFormValid ? '' : 'is-disabled'
+            } ${isLoading ? 'is-loading' : ''}`}
+            onClick={handleMailSend}
+            disabled={!isFormValid}
+          >
+            送出
+          </button>
+        </div>
+      </section>
       <iframe
         width="100%"
         height="500"
