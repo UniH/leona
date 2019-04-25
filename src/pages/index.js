@@ -194,23 +194,15 @@ const IndexPage = () => {
         </div>
       </div>
       <div className="section-contact">
-        <div className="title">立刻聯絡</div>
+        <div className="title has-text-white">立刻聯絡</div>
         <div className="content">
           <a href="tel:+886939-117-358">0939-117-358</a>
           <br />
           <a href="tel:+8863-3161512">03-3161512</a>
         </div>
       </div>
-      <iframe
-        width="100%"
-        height="500"
-        frameborder="0"
-        style={{ border: 0, height: '500px' }}
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
-      />
-
       <div className="field">
-        <label className="label">姓名</label>
+        <label className="label has-text-white">姓名</label>
         <div className="control">
           <input
             className="input"
@@ -223,7 +215,7 @@ const IndexPage = () => {
       </div>
 
       <div className="field">
-        <label className="label">電話</label>
+        <label className="label has-text-white">電話</label>
         <div className="control">
           <input
             className="input"
@@ -237,7 +229,7 @@ const IndexPage = () => {
       </div>
 
       <div className="field">
-        <label className="label">Email</label>
+        <label className="label has-text-white">Email</label>
         <div className="control">
           <input
             className="input"
@@ -251,7 +243,7 @@ const IndexPage = () => {
       </div>
 
       <div className="field">
-        <label className="label">備註</label>
+        <label className="label has-text-white">備註</label>
         <div className="control">
           <textarea
             className="textarea"
@@ -262,17 +254,24 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div className="control">
+      <div className="control has-text-centered">
         <button
-          className={`button  ${isFormValid ? '' : 'is-disabled'} ${
-            isLoading ? 'is-loading' : ''
-          }`}
+          className={`button is-medium is-primary ${
+            isFormValid ? '' : 'is-disabled'
+          } ${isLoading ? 'is-loading' : ''}`}
           onClick={handleMailSend}
           disabled={!isFormValid}
         >
-          hihi
+          送出
         </button>
       </div>
+      <iframe
+        width="100%"
+        height="500"
+        frameborder="0"
+        style={{ border: 0, height: '500px' }}
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
+      />
     </Layout>
   );
 };
