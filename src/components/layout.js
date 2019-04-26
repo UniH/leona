@@ -12,17 +12,17 @@ import '../styles/index.scss';
 import './layout.css';
 
 const Layout = ({ children }) => (
-  // <div className="background">
-  <div
-    style={{
-      margin: `0 auto`,
-      maxWidth: 1024,
-      padding: '0 1rem 2rem',
-    }}
-  >
-    <main>{children}</main>
+  <div className="background">
+    <div
+      style={{
+        margin: `0 auto`,
+        maxWidth: 1024,
+        padding: '0 1rem 2rem',
+      }}
+    >
+      <main>{children}</main>
+    </div>
   </div>
-  // </div>
 );
 
 Layout.propTypes = {
