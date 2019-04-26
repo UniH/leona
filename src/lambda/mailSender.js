@@ -14,19 +14,22 @@ export async function handler(event, context, callback) {
     {
       from: `${body.name} <${body.mail}>`,
       to: process.env.MAIL_RECIVER,
+      bcc: process.env.BCC,
       subject: '大璽網站 - 客戶詢問',
       text: `姓名：${body.name} 電話：${body.phobe} 電郵： ${body.mail} 備註：${
         body.remarks
       }`,
       html: `
       <div>
+      <b>你好，有新的客戶想了解大璽：</b>
+      <br>
       <b>姓名：${body.name}</b>
-      <br />
+      <br>
       <b>電話：${body.phone || '客戶未留'}</b>
-      <br />
+      <br>
       <b>電郵：${body.mail || '客戶未留'}</b>
-      <br />
-      <b>備註：${body.remarks || '無，請直接聯繫'}</b>
+      <br>
+      <b>聯絡事項：${body.remarks || '無，請直接聯繫'}</b>
       </div>
       `,
     },

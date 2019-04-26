@@ -48,7 +48,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      {/* <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <img src="/img1.jpg" alt="banner" />
       <div className="section2">
         <div className="columns">
@@ -199,7 +199,7 @@ const IndexPage = () => {
           <br />
           <a href="tel:+8863-3161512">03-3161512</a>
         </div>
-      </div>
+      </div> */}
       <section className="seciton-form">
         <div className="container">
           <div classNmae="columns">
@@ -268,14 +268,14 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-      <iframe
+      {/* <iframe
         title="map"
         width="100%"
         height="500"
         frameborder="0"
         style={{ border: 0, height: '500px' }}
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
-      />
+      /> */}
     </Layout>
   );
 };
