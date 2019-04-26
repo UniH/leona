@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -50,7 +49,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <img src="/img1.jpg" />
+      <img src="/img1.jpg" alt="banner" />
       <div className="section2">
         <div className="columns">
           <div className="column is-8">
@@ -202,72 +201,75 @@ const IndexPage = () => {
         </div>
       </div>
       <section className="seciton-form">
-        <div className="field">
-          <label className="label has-text-white">姓名</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="您的姓名"
-              value={name}
-              onChange={handleNameChange}
-            />
-          </div>
-        </div>
+        <div className="container">
+          <div classNmae="columns">
+            <div className="column">
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input is-radiusless"
+                    type="text"
+                    placeholder="輸入姓名"
+                    value={name}
+                    onChange={handleNameChange}
+                  />
+                </div>
+              </div>
 
-        <div className="field">
-          <label className="label has-text-white">電話</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="09xx-xxx-xxx"
-              value={phone}
-              onChange={handlePhoneChange}
-            />
-          </div>
-          {/* <p className="help is-success">This username is available</p> */}
-        </div>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input is-radiusless"
+                    type="text"
+                    placeholder="輸入聯絡電話"
+                    value={phone}
+                    onChange={handlePhoneChange}
+                  />
+                </div>
+                {/* <p className="help is-success">This username is available</p> */}
+              </div>
 
-        <div className="field">
-          <label className="label has-text-white">Email</label>
-          <div className="control">
-            <input
-              className="input"
-              type="email"
-              placeholder="xxx@mail.com"
-              value={mail}
-              onChange={handleMailChange}
-            />
-          </div>
-          {/* <p className="help is-danger">This email is invalid</p> */}
-        </div>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input is-radiusless"
+                    type="email"
+                    placeholder="輸入 Email"
+                    value={mail}
+                    onChange={handleMailChange}
+                  />
+                </div>
+                {/* <p className="help is-danger">This email is invalid</p> */}
+              </div>
 
-        <div className="field">
-          <label className="label has-text-white">備註</label>
-          <div className="control">
-            <textarea
-              className="textarea"
-              placeholder="想了解..."
-              value={remarks}
-              onChange={handleRemarksChange}
-            />
-          </div>
-        </div>
+              <div className="field">
+                <div className="control">
+                  <textarea
+                    className="textarea is-radiusless"
+                    placeholder="輸入聯絡事項"
+                    value={remarks}
+                    onChange={handleRemarksChange}
+                  />
+                </div>
+              </div>
 
-        <div className="control has-text-centered">
-          <button
-            className={`button is-medium is-primary ${
-              isFormValid ? '' : 'is-disabled'
-            } ${isLoading ? 'is-loading' : ''}`}
-            onClick={handleMailSend}
-            disabled={!isFormValid}
-          >
-            送出
-          </button>
+              <div className="control has-text-centered">
+                <button
+                  className={`button is-medium is-danger is-radiusless ${
+                    isFormValid ? '' : 'is-disabled'
+                  } ${isLoading ? 'is-loading' : ''}`}
+                  onClick={handleMailSend}
+                  disabled={!isFormValid}
+                >
+                  確認送出
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <iframe
+        title="map"
         width="100%"
         height="500"
         frameborder="0"
