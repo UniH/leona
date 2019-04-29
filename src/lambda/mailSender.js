@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 
 export async function handler(event, context, callback) {
+  console.log('handle mail sending');
   try {
     const body = JSON.parse(event.body);
     let transporter = nodemailer.createTransport({
