@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export async function handler(event, context, callback) {
+export function handler(event, context, callback) {
   try {
     const body = JSON.parse(event.body);
     let transporter = nodemailer.createTransport({
@@ -14,53 +14,53 @@ export async function handler(event, context, callback) {
     console.log('New mail:', body);
     console.log('Time: ', new Date());
 
-    transporter.sendMail(
-      {
-        from: `${body.name} <${body.mail}>`,
-        to: process.env.MAIL_RECIVER,
-        bcc: process.env.BCC,
-        subject: '大璽網站 - 客戶詢問',
-        text: `姓名：${body.name} 電話：${body.phobe} 電郵： ${
-          body.mail
-        } 備註：${body.remarks}`,
-        html: `
-      <div>
-      <b>你好，有新的客戶想了解大璽：</b>
-      <br>
-      <b>姓名：${body.name}</b>
-      <br>
-      <b>電話：${body.phone || '客戶未留'}</b>
-      <br>
-      <b>電郵：${body.mail || '客戶未留'}</b>
-      <br>
-      <b>聯絡事項：${body.remarks || '無，請直接聯繫'}</b>
-      </div>
-      `,
-      },
-      (err, info) => {
-        if (err) {
-          const response = {
-            statusCode: 500,
-            body: JSON.stringify({
-              error: err.message,
-            }),
-          };
-          callback(null, response);
-        }
+    const mailOptions = {
+      from: `${body.name} <${body.mail}>`,
+      to: process.env.MAIL_RECIVER,
+      bcc: process.env.BCC,
+      subject: '大璽網站 - 客戶詢問',
+      text: `姓名：${body.name} 電話：${body.phobe} 電郵： ${body.mail} 備註：${
+        body.remarks
+      }`,
+      html: `
+    <div>
+    <b>你好，有新的客戶想了解大璽：</b>
+    <br>
+    <b>姓名：${body.name}</b>
+    <br>
+    <b>電話：${body.phone || '客戶未留'}</b>
+    <br>
+    <b>電郵：${body.mail || '客戶未留'}</b>
+    <br>
+    <b>聯絡事項：${body.remarks || '無，請直接聯繫'}</b>
+    </div>
+    `,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
         const response = {
-          statusCode: 200,
+          statusCode: 500,
           body: JSON.stringify({
-            message: `Email processed succesfully!`,
+            error: err.message,
           }),
         };
-        console.log('mail sent');
-        callback(null, response);
+        console.log('error', err);
+        return callback(null, response);
       }
-    );
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify({
+          message: `Email processed succesfully!`,
+        }),
+      };
+      console.log('mail sent');
+      console.log('response', response);
+      callback(null, response);
+    });
   } catch (e) {
     console.log('error', e);
   }
-  return;
 }
 
 export default handler;
