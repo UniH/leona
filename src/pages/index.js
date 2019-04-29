@@ -200,6 +200,12 @@ const IndexPage = () => {
           <a href="tel:+8863-3161512">03-3161512</a>
         </div>
       </div>
+      <section className="section-form-title">
+        <div className="title is-white">我有興趣</div>
+        <div className="is-white">
+          親愛的客戶您好，如果您有任何疑問，歡迎您線上留言給我們，收到您的訊息後，我們儘快請專人回覆您的問題。謝謝您！
+        </div>
+      </section>
       <section className="seciton-form">
         <div className="container">
           <div className="columns">
