@@ -27,10 +27,10 @@ const IndexPage = () => {
 
   const isFormValid = name.length > 0 && (phone.length > 0 || mail.length > 0);
 
-  const handleMailSend = () => {
+  const handleMailSend = async () => {
     if (isFormValid) {
       changeIsLoading(true);
-      fetch('/.netlify/functions/mailSender', {
+      await fetch('/.netlify/functions/mailSender', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

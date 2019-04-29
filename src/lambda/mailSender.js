@@ -39,6 +39,7 @@ export async function handler(event, context, callback) {
       }
       callback(null, { statusCode: 200, body: 'Mail sent!' });
       console.log('Message %s sent: %s', info.messageId, info.response);
+      return { statusCode: 200, body: 'Mail sent!' };
     }
   );
   return;
