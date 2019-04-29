@@ -1,25 +1,26 @@
 import nodemailer from 'nodemailer';
 
 export async function handler(event, context, callback) {
-  const body = JSON.parse(event.body);
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
-    },
-  });
+  try {
+    const body = JSON.parse(event.body);
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
+      },
+    });
 
-  transporter.sendMail(
-    {
-      from: `${body.name} <${body.mail}>`,
-      to: process.env.MAIL_RECIVER,
-      bcc: process.env.BCC,
-      subject: '大璽網站 - 客戶詢問',
-      text: `姓名：${body.name} 電話：${body.phobe} 電郵： ${body.mail} 備註：${
-        body.remarks
-      }`,
-      html: `
+    transporter.sendMail(
+      {
+        from: `${body.name} <${body.mail}>`,
+        to: process.env.MAIL_RECIVER,
+        bcc: process.env.BCC,
+        subject: '大璽網站 - 客戶詢問',
+        text: `姓名：${body.name} 電話：${body.phobe} 電郵： ${
+          body.mail
+        } 備註：${body.remarks}`,
+        html: `
       <div>
       <b>你好，有新的客戶想了解大璽：</b>
       <br>
@@ -32,19 +33,22 @@ export async function handler(event, context, callback) {
       <b>聯絡事項：${body.remarks || '無，請直接聯繫'}</b>
       </div>
       `,
-    },
-    (err, info) => {
-      if (err) {
-        return console.log(err);
+      },
+      (err, info) => {
+        if (err) {
+          return console.log(err);
+        }
+        callback(null, { statusCode: 200, body: 'Mail sent!' });
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        console.log(
+          `Mail sent to ${process.env.MAIL_RECIVER}, ${process.env.BCC}`
+        );
+        return { statusCode: 200, body: 'Mail sent!' };
       }
-      callback(null, { statusCode: 200, body: 'Mail sent!' });
-      console.log('Message %s sent: %s', info.messageId, info.response);
-      console.log(
-        `Mail sent to ${process.env.MAIL_RECIVER}, ${process.env.BCC}`
-      );
-      return { statusCode: 200, body: 'Mail sent!' };
-    }
-  );
+    );
+  } catch (e) {
+    console.log('error', e);
+  }
   return;
 }
 
