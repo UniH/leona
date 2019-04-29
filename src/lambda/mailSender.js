@@ -39,6 +39,9 @@ export async function handler(event, context, callback) {
       }
       callback(null, { statusCode: 200, body: 'Mail sent!' });
       console.log('Message %s sent: %s', info.messageId, info.response);
+      console.log(
+        `Mail sent to ${process.env.MAIL_RECIVER}, ${process.env.BCC}`
+      );
       return { statusCode: 200, body: 'Mail sent!' };
     }
   );
