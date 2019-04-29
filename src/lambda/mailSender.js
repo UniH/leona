@@ -11,6 +11,9 @@ export async function handler(event, context, callback) {
       },
     });
 
+    console.log('New mail:', body);
+    console.log('Time: ', new Date());
+
     transporter.sendMail(
       {
         from: `${body.name} <${body.mail}>`,
@@ -36,14 +39,22 @@ export async function handler(event, context, callback) {
       },
       (err, info) => {
         if (err) {
-          return console.log(err);
+          const response = {
+            statusCode: 500,
+            body: JSON.stringify({
+              error: err.message,
+            }),
+          };
+          callback(null, response);
         }
-        callback(null, { statusCode: 200, body: 'Mail sent!' });
-        console.log('Message %s sent: %s', info.messageId, info.response);
-        console.log(
-          `Mail sent to ${process.env.MAIL_RECIVER}, ${process.env.BCC}`
-        );
-        return { statusCode: 200, body: 'Mail sent!' };
+        const response = {
+          statusCode: 200,
+          body: JSON.stringify({
+            message: `Email processed succesfully!`,
+          }),
+        };
+        console.log('mail sent');
+        callback(null, response);
       }
     );
   } catch (e) {
