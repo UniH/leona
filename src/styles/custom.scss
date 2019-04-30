@@ -2,6 +2,52 @@
   font-family: 'Noto Sans TC', sans-serif;
 }
 
+.banner {
+  margin-top: -5px;
+  position: relative;
+
+  .banner-contact {
+    font-size: 19px;
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+    margin: 1em 0;
+    line-height: 1;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    a {
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    .banner-contact {
+      font-size: 20px;
+      left: 18%;
+      top: 0;
+      bottom: unset;
+      right: unset;
+      margin: 0.5em 0;
+      background: none;
+      line-height: 1.2;
+      color: #111;
+      a {
+        color: #111;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .banner {
+    .banner-contact {
+      font-size: 24px;
+    }
+  }
+}
+
 .background {
   background-image: url('/background.jpg');
   background-repeat: no-repeat;

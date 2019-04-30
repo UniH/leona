@@ -49,7 +49,16 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <img src="/img1.jpg" alt="banner" />
+      <section className="banner">
+        <img src="/img1.jpg" alt="banner" />
+        <div className="banner-contact ">
+          即刻入主專線
+          <br />
+          <a href="tel:+886939-117-358">0939-117-358</a>
+          <br />
+          <a href="tel:+8863-3161512">03-3161512</a>
+        </div>
+      </section>
       <div className="section2">
         <div className="columns">
           <div className="column is-8">
