@@ -71,7 +71,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="大璽" keywords={keywords} description={description} />
+      <SEO title="中路大璽" keywords={keywords} description={description} />
       <section className="banner">
         <img src="/img1.jpg" alt="banner" />
         <div className="banner-contact ">
