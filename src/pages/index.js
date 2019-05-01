@@ -46,9 +46,32 @@ const IndexPage = () => {
     }
   };
 
+  const keywords = [
+    '桃園',
+    '台北',
+    '大璽',
+    '中路',
+    '建案',
+    '購屋',
+    '新屋',
+    '買房',
+    '豪宅',
+    '店面',
+    '工作室',
+    '火車站',
+    '國道',
+    '交流道',
+    '機場',
+    '中山高',
+    '學區',
+  ];
+
+  const description =
+    '中路特區，豪氣伸展您的富貴疆域大桃園精華地段。10分鐘近取桃園火車站、國道二號、桃園交流道，機場、中山高、北二高便捷快速，一小時內的快速台北生活圈。';
+
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="大璽" keywords={keywords} description={description} />
       <section className="banner">
         <img src="/img1.jpg" alt="banner" />
         <div className="banner-contact ">
