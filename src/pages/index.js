@@ -74,8 +74,11 @@ const IndexPage = () => {
     '中路特區，豪氣伸展您的富貴疆域大桃園精華地段。10分鐘近取桃園火車站、國道二號、桃園交流道，機場、中山高、北二高便捷快速，一小時內的快速台北生活圈。';
 
   return (
-    <Layout>
+    <Layout background={true}>
       <SEO title="中路大璽" keywords={keywords} description={description} />
+      <div style={{ maxWidth: 1024, padding: '0 1rem 2rem', margin: `0 auto`,}}>
+
+
       <section className="banner">
         <img src="/img1.jpg" alt="banner" />
         <div className="banner-contact ">
@@ -305,6 +308,7 @@ const IndexPage = () => {
                 >
                   確認送出
                 </button>
+                <p className="is-size-7">點擊送出即視為同意本公司之<a href="/policy" target="blank">使用條例及隱私權政策</a></p>
               </div>
             </div>
           </div>
@@ -318,6 +322,7 @@ const IndexPage = () => {
         style={{ border: 0, height: '500px' }}
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOFcz6XAwmN98AJkDmgiN93lRQZLLADNc&q=330桃園市桃園區正光路186巷78號"
       />
+      </div>
     </Layout>
   );
 };

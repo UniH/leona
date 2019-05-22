@@ -11,13 +11,13 @@ import PropTypes from 'prop-types';
 import '../styles/index.scss';
 import './layout.css';
 
-const Layout = ({ children }) => (
-  <div className="background">
+const Layout = ({ children, background }) => (
+  <div className={background ? 'background': ''}>
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 1024,
-        padding: '0 1rem 2rem',
+        // maxWidth: 1024,
+        // padding: '0 1rem 2rem',
       }}
     >
       <main>{children}</main>
