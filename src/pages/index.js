@@ -75,7 +75,7 @@ const IndexPage = () => {
 
   return (
     <Layout background={true}>
-      <SEO title="中路大璽" keywords={keywords} description={description} />
+      <SEO title="大璽" keywords={keywords} description={description} />
       <div style={{ maxWidth: 1024, padding: '0 1rem 2rem', margin: `0 auto`,}}>
 
 

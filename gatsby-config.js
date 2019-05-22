@@ -17,7 +17,7 @@ module.exports = {
   siteMetadata: {
     title: `大璽 - 絕版夢土 傳世定鑄 限量釋出`,
     description: `絕版夢土 傳世定鑄 限量釋出`,
-    author: `中路大璽`,
+    author: `大璽`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
